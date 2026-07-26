@@ -25,14 +25,14 @@ Dataset yang digunakan pada proyek ini bersifat **operasional** (bukan laporan k
 
 | Financial Health Indicator | Status | Keterangan |
 |---|---|---|
-| Net Interest Margin (NIM) | ✖ Tidak dapat dihitung | Tidak ada data beban bunga deposito (*interest expense*) maupun rata-rata aset produktif |
-| Return on Assets (ROA) | ✖ Tidak dapat dihitung | Tidak ada data laba bersih maupun total aset bank |
-| Capital Adequacy Ratio (CAR) | ✖ Tidak dapat dihitung | Tidak ada data modal bank maupun Aset Tertimbang Menurut Risiko (ATMR) |
-| Liquidity Coverage Ratio (LCR) | ✖ Tidak dapat dihitung | Tidak ada data High Quality Liquid Assets maupun proyeksi arus kas keluar |
-| Cost to Income Ratio (CIR) | ✖ Tidak dapat dihitung | Tidak ada data biaya operasional maupun data karyawan |
-| Non Performing Loan (NPL) | ✔ Dapat dihitung | Tersedia dari kolom `loans.status` (nilai `overdue` dan `written_off`) |
-| Loan-to-Deposit Ratio (Proxy) | ✔ Dapat dihitung | Tersedia dari `loans.outstanding_idr` dan `accounts.balance_idr` |
-| Estimated Loan Interest Income | ✔ Dapat dihitung | Tersedia dari `loans.outstanding_idr` × `loans.interest_rate_annual` |
+| Net Interest Margin (NIM) | Tidak dapat dihitung | Tidak ada data beban bunga deposito (*interest expense*) maupun rata-rata aset produktif |
+| Return on Assets (ROA) | Tidak dapat dihitung | Tidak ada data laba bersih maupun total aset bank |
+| Capital Adequacy Ratio (CAR) | Tidak dapat dihitung | Tidak ada data modal bank maupun Aset Tertimbang Menurut Risiko (ATMR) |
+| Liquidity Coverage Ratio (LCR) | Tidak dapat dihitung | Tidak ada data High Quality Liquid Assets maupun proyeksi arus kas keluar |
+| Cost to Income Ratio (CIR) | Tidak dapat dihitung | Tidak ada data biaya operasional maupun data karyawan |
+| Non Performing Loan (NPL) | Dapat dihitung | Tersedia dari kolom `loans.status` (nilai `overdue` dan `written_off`) |
+| Loan-to-Deposit Ratio (Proxy) | Dapat dihitung | Tersedia dari `loans.outstanding_idr` dan `accounts.balance_idr` |
+| Estimated Loan Interest Income | Dapat dihitung | Tersedia dari `loans.outstanding_idr` × `loans.interest_rate_annual` |
 
 **Kesimpulan:** Dari 5 dimensi Financial Health, hanya **3 dimensi yang bisa direpresentasikan** pada dashboard ini — **Profitability** (sebagian, lewat Derived KPI), **Liquidity** (lewat Proxy KPI), dan **Asset Quality** (KPI resmi, NPL). **Capital Adequacy** dan **Operational Efficiency** sama sekali tidak dapat diimplementasikan karena keterbatasan data.
 
