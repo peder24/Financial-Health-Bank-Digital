@@ -90,13 +90,13 @@ Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik te
 
 ## 6. Hasil Dashboard: Perbandingan 2022–2024
 
-| Metrik | 2022 | 2023 | 2024* |
+| Metrik | 2022 | 2023 | 2024 |
 |---|---|---|---|
 | Estimated Loan Interest Income | Rp44.94bn | Rp51.53bn | Rp16.85bn |
 | Outstanding Loan | Rp2.51bn | Rp2.92bn | Rp946.72M |
 | Total Deposit Balance | Rp13.68bn | Rp12.57bn | Rp5.64bn |
 | Loan-to-Deposit Ratio | 18.38% | 23.19% | 16.79% |
-| Non-Performing Loan (NPL) | 16.21% | 21.06% | — ** |
+| Non-Performing Loan (NPL) | 16.21% | 21.06% | —  |
 | Jumlah Pinjaman Aktif | 80 (62.02%) | 65 (57.52%) | 35 (60.34%) |
 | Jumlah Pinjaman Overdue | 8 (6.20%) | 17 (15.04%) | 5 (8.62%) |
 | Jumlah Pinjaman Written-off | 7 (5.43%) | 2 (1.77%) | ~1 (1.72%) |
