@@ -81,7 +81,7 @@ Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik te
 | 5 Card ringkasan | Card | Estimated Loan Interest Income, Outstanding Loan, Total Deposit Balance, Loan-to-Deposit Ratio, NPL Rate | Snapshot kondisi terkini per filter tahun |
 | Total Loan Disbursed per Month | Line/Column chart | `loans.disbursement_date`, `loans.principal_idr` | Tren pencairan pinjaman bulanan (event data — valid) |
 | Deposit Composition by Account Type | Donut chart | `accounts.account_type`, `accounts.balance_idr` | Breakdown tabungan/deposito/bisnis |
-| Outstanding Balance vs Remaining Deposit | Donut chart (2 measure) | `Loan Portion`, `Remaining Deposit` | Visualisasi komposisi LDR |
+| Outstanding Balance vs Remaining Deposit | Donut chart (2 measure) | `Outstanding Balance`, `Remaining Deposit` | Visualisasi komposisi LDR |
 | Loan Count by Status | Donut chart | `loans.status` | Jumlah pinjaman per kategori (active/paid_off/overdue/written_off) |
 | Outstanding Balance by Loan Status | Bar chart | `loans.status`, `loans.outstanding_idr` | Nilai uang outstanding per kategori status |
 | Slicer: Year | Slicer | Kolom Year (loans/accounts) | Filter periode analisis |
