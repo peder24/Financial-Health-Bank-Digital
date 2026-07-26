@@ -1,6 +1,6 @@
 # Financial Health Overview Dashboard 
 
-![alt_text]([https://res.cloudinary.com/dk2tex4to/image/upload/v1783696636/Screenshot_2026-07-10_221645_urt1oj.png](https://res.cloudinary.com/dk2tex4to/image/upload/v1785080097/Screenshot_2026-07-26_223425_vcxc9d.png))
+![alt_text](https://res.cloudinary.com/dk2tex4to/image/upload/v1783696636/Screenshot_2026-07-10_221645_urt1oj.png](https://res.cloudinary.com/dk2tex4to/image/upload/v1785080097/Screenshot_2026-07-26_223425_vcxc9d.png)
 
 
 Dashboard ini dikembangkan untuk memantau kondisi bisnis bank menggunakan *Financial Health Framework* sebagai kerangka konseptual, diimplementasikan pada data operasional bank (nasabah, rekening, transaksi, pinjaman, kartu) menggunakan Power BI.
