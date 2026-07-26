@@ -111,7 +111,7 @@ Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik te
 - **Loan-to-Deposit Ratio naik dari 18.38% (2022) ke 23.19% (2023)**, menandakan porsi dana nasabah yang disalurkan sebagai kredit meningkat, meski secara absolut masih jauh dari ambang "agresif" (>95%).
 - **Estimated Loan Interest Income naik dari 2022 ke 2023** (Rp44.94bn → Rp51.53bn) meski Outstanding Loan hanya naik sedikit (Rp2.51bn → Rp2.92bn) — mengindikasikan bauran pinjaman baru di 2023 kemungkinan memiliki suku bunga rata-rata lebih tinggi, atau volume pencairan baru lebih besar dibanding yang sudah dicicil/lunas.
 
-### ⚠️ Catatan Metodologis Penting
+### Catatan Penting
 
 Angka **Total Deposit Balance** dan **Outstanding Loan** pada tabel di atas ter-filter oleh slicer **Year**, yang tertaut pada tahun **pencairan pinjaman** (`disbursement_date`) dan/atau **tahun pembukaan rekening** (`created_date`) — **bukan** representasi "total deposit/outstanding bank pada tahun tersebut secara keseluruhan". Artinya, angka Rp13.68bn di tahun 2022 adalah **saldo saat ini dari rekening-rekening yang dibuka pada 2022** (cohort), bukan "total simpanan bank pada tahun 2022". Interpretasi cohort ini penting untuk dipahami pembaca agar tidak disalahartikan sebagai laporan neraca tahunan resmi bank.
 
