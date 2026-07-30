@@ -56,11 +56,6 @@ Karena tidak semua indikator resmi tersedia, KPI pada dashboard ini diklasifikas
 | **Loan-to-Deposit Ratio (Proxy)** | **Proxy** | Liquidity | `Outstanding Loan ÷ Total Deposit Balance × 100%` | Secara konsep tetap mengukur konstruk yang sama dengan LDR resmi (kredit dibagi dana pihak ketiga); hanya definisi "dana pihak ketiga" memakai saldo rekening operasional (tabungan, deposito, bisnis), bukan definisi DPK versi regulasi OJK. |
 | **Non Performing Loan (NPL)** | Primary | Asset Quality | `(Jumlah loan status overdue + written_off) ÷ Total Loan × 100%` | KPI resmi industri perbankan; satu-satunya rasio resmi yang bisa dihitung utuh dari dataset ini. |
 
-### 3.3 KPI yang Sengaja Tidak Dipertahankan
-
-- **Product per Customer** - dihapus dari dashboard karena murni mengukur *Customer Engagement*, tidak memiliki keterkaitan konsep sama sekali dengan 5 dimensi Financial Health (bukan Profitability, Liquidity, Asset Quality, Capital Adequacy, maupun Efficiency).
-- **Total Transaction, Total Transaction Value, dsb.** - diklasifikasikan sebagai **Transaction Activity (supplementary)**, bukan Operational Efficiency, karena murni mengukur volume/nilai aktivitas, bukan rasio biaya atau produktivitas seperti CIR/Profit per Employee.
-
 ## 4. Karakteristik Data: Event vs Snapshot
 
 Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik temporal data:
