@@ -55,8 +55,6 @@ Karena tidak semua indikator resmi tersedia, KPI pada dashboard ini diklasifikas
 | **Estimated Loan Interest Income** | **Derived** | Profitability (aspek pendapatan bunga) | `SUMX(loans, outstanding_idr × interest_rate_annual)` | Bukan pengganti NIM - NIM adalah *rasio* margin bunga bersih terhadap aset produktif, sedangkan ini adalah estimasi *nilai absolut* pendapatan bunga kotor, tanpa memperhitungkan beban bunga (cost of fund) atau rata-rata aset produktif. Kedua nilai bahkan berpotensi bergerak berlawanan arah, sehingga tidak layak disebut proxy NIM. |
 | **Loan-to-Deposit Ratio (Proxy)** | **Proxy** | Liquidity | `Outstanding Loan ÷ Total Deposit Balance × 100%` | Secara konsep tetap mengukur konstruk yang sama dengan LDR resmi (kredit dibagi dana pihak ketiga); hanya definisi "dana pihak ketiga" memakai saldo rekening operasional (tabungan, deposito, bisnis), bukan definisi DPK versi regulasi OJK. |
 | **Non Performing Loan (NPL)** | Primary | Asset Quality | `(Jumlah loan status overdue + written_off) ÷ Total Loan × 100%` | KPI resmi industri perbankan; satu-satunya rasio resmi yang bisa dihitung utuh dari dataset ini. |
-| **Total Credit Limit** | Primary | Card Portfolio *(supplementary)* | `SUM(cards.credit_limit_idr)` khusus `card_type = 'credit'` | Mengukur kapasitas kredit yang diberikan; kartu debit/prepaid tidak memiliki atribut limit sehingga dikecualikan. |
-| **Credit Utilization Rate** | Primary | Card Portfolio *(supplementary)* | `Total Outstanding Credit ÷ Total Credit Limit × 100%` khusus `card_type = 'credit'` | Indikator risiko penggunaan fasilitas kredit kartu. |
 
 ### 3.3 KPI yang Sengaja Tidak Dipertahankan
 
