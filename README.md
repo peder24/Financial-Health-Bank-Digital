@@ -103,7 +103,8 @@ Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik te
 | Jumlah Pinjaman Paid-off | 34 (26.36%) | 29 (25.66%) | 17 (29.31%) |
 
 * Data 2024 hanya mencakup Januari–Mei karena rentang data pencairan pinjaman pada dataset berakhir pada Mei 2024. Hal ini bukan menunjukkan bahwa aktivitas bisnis berhenti, melainkan merupakan batas cakupan dataset.
-** Card NPL tidak tertangkap pada tangkapan layar tahun 2024.
+
+* Card NPL tidak tertangkap pada tangkapan layar tahun 2024.
 
 ### Observasi
 
