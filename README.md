@@ -17,7 +17,7 @@ Dashboard ini dikembangkan untuk memantau kondisi bisnis bank menggunakan *Finan
 | Asset Quality | Non Performing Loan (NPL), Provision Coverage Ratio (PCR) | Mengukur kualitas portofolio kredit |
 | Operational Efficiency | Cost to Income Ratio (CIR), Profit per Employee | Mengukur efisiensi biaya dan produktivitas |
 
-Dataset yang digunakan pada proyek ini bersifat **operasional** (bukan laporan keuangan resmi bank), terdiri atas 5 tabel: `customers`, `accounts`, `transactions`, `loans`, `cards`. Oleh karena itu, tidak seluruh KPI resmi di atas dapat dihitung — lihat bagian Limitasi untuk detail lengkapnya.
+Dataset yang digunakan pada proyek ini bersifat **operasional** (bukan laporan keuangan resmi bank), terdiri atas 5 tabel: `customers`, `accounts`, `transactions`, `loans`, `cards`. Oleh karena itu, tidak seluruh KPI resmi di atas dapat dihitung - lihat bagian Limitasi untuk detail lengkapnya.
 
 ---
 
@@ -34,7 +34,7 @@ Dataset yang digunakan pada proyek ini bersifat **operasional** (bukan laporan k
 | Loan-to-Deposit Ratio (Proxy) | Dapat dihitung | Tersedia dari `loans.outstanding_idr` dan `accounts.balance_idr` |
 | Estimated Loan Interest Income | Dapat dihitung | Tersedia dari `loans.outstanding_idr` × `loans.interest_rate_annual` |
 
-**Kesimpulan:** Dari 5 dimensi Financial Health, hanya **3 dimensi yang bisa direpresentasikan** pada dashboard ini — **Profitability** (sebagian, lewat Derived KPI), **Liquidity** (lewat Proxy KPI), dan **Asset Quality** (KPI resmi, NPL). **Capital Adequacy** dan **Operational Efficiency** sama sekali tidak dapat diimplementasikan karena keterbatasan data.
+**Kesimpulan:** Dari 5 dimensi Financial Health, hanya **3 dimensi yang bisa direpresentasikan** pada dashboard ini  **Profitability** (sebagian, lewat Derived KPI), **Liquidity** (lewat Proxy KPI), dan **Asset Quality** (KPI resmi, NPL). **Capital Adequacy** dan **Operational Efficiency** sama sekali tidak dapat diimplementasikan karena keterbatasan data.
 
 ## 3. KPI yang Digunakan dan Alasan Pemilihannya
 
@@ -42,9 +42,9 @@ Dataset yang digunakan pada proyek ini bersifat **operasional** (bukan laporan k
 
 Karena tidak semua indikator resmi tersedia, KPI pada dashboard ini diklasifikasikan menjadi 3 jenis:
 
-- **Primary KPI** — dihitung langsung dari data tanpa asumsi tambahan.
-- **Derived KPI** — metrik hasil perhitungan yang **tidak menggantikan** KPI resmi manapun (konsep berbeda).
-- **Proxy KPI** — metrik yang mengukur **konstruk yang sama** dengan KPI resmi, hanya sumber datanya disesuaikan.
+- **Primary KPI** - dihitung langsung dari data tanpa asumsi tambahan.
+- **Derived KPI** - metrik hasil perhitungan yang **tidak menggantikan** KPI resmi manapun (konsep berbeda).
+- **Proxy KPI** - metrik yang mengukur **konstruk yang sama** dengan KPI resmi, hanya sumber datanya disesuaikan.
 
 ### 3.2 Tabel KPI, Formula, dan Alasan
 
@@ -52,7 +52,7 @@ Karena tidak semua indikator resmi tersedia, KPI pada dashboard ini diklasifikas
 |---|---|---|---|---|
 | **Total Deposit Balance** | Primary | Liquidity | `SUM(accounts.balance_idr)` | Representasi langsung dana nasabah yang dikelola bank; dasar penghitungan LDR. |
 | **Outstanding Loan** | Primary | Profitability / Asset Quality | `SUM(loans.outstanding_idr)` | Mengukur eksposur kredit yang masih berjalan; snapshot kondisi kredit terkini. |
-| **Estimated Loan Interest Income** | **Derived** | Profitability (aspek pendapatan bunga) | `SUMX(loans, outstanding_idr × interest_rate_annual)` | Bukan pengganti NIM — NIM adalah *rasio* margin bunga bersih terhadap aset produktif, sedangkan ini adalah estimasi *nilai absolut* pendapatan bunga kotor, tanpa memperhitungkan beban bunga (cost of fund) atau rata-rata aset produktif. Kedua nilai bahkan berpotensi bergerak berlawanan arah, sehingga tidak layak disebut proxy NIM. |
+| **Estimated Loan Interest Income** | **Derived** | Profitability (aspek pendapatan bunga) | `SUMX(loans, outstanding_idr × interest_rate_annual)` | Bukan pengganti NIM - NIM adalah *rasio* margin bunga bersih terhadap aset produktif, sedangkan ini adalah estimasi *nilai absolut* pendapatan bunga kotor, tanpa memperhitungkan beban bunga (cost of fund) atau rata-rata aset produktif. Kedua nilai bahkan berpotensi bergerak berlawanan arah, sehingga tidak layak disebut proxy NIM. |
 | **Loan-to-Deposit Ratio (Proxy)** | **Proxy** | Liquidity | `Outstanding Loan ÷ Total Deposit Balance × 100%` | Secara konsep tetap mengukur konstruk yang sama dengan LDR resmi (kredit dibagi dana pihak ketiga); hanya definisi "dana pihak ketiga" memakai saldo rekening operasional (tabungan, deposito, bisnis), bukan definisi DPK versi regulasi OJK. |
 | **Non Performing Loan (NPL)** | Primary | Asset Quality | `(Jumlah loan status overdue + written_off) ÷ Total Loan × 100%` | KPI resmi industri perbankan; satu-satunya rasio resmi yang bisa dihitung utuh dari dataset ini. |
 | **Total Credit Limit** | Primary | Card Portfolio *(supplementary)* | `SUM(cards.credit_limit_idr)` khusus `card_type = 'credit'` | Mengukur kapasitas kredit yang diberikan; kartu debit/prepaid tidak memiliki atribut limit sehingga dikecualikan. |
@@ -60,15 +60,15 @@ Karena tidak semua indikator resmi tersedia, KPI pada dashboard ini diklasifikas
 
 ### 3.3 KPI yang Sengaja Tidak Dipertahankan
 
-- **Product per Customer** — dihapus dari dashboard karena murni mengukur *Customer Engagement*, tidak memiliki keterkaitan konsep sama sekali dengan 5 dimensi Financial Health (bukan Profitability, Liquidity, Asset Quality, Capital Adequacy, maupun Efficiency).
-- **Total Transaction, Total Transaction Value, dsb.** — diklasifikasikan sebagai **Transaction Activity (supplementary)**, bukan Operational Efficiency, karena murni mengukur volume/nilai aktivitas, bukan rasio biaya atau produktivitas seperti CIR/Profit per Employee.
+- **Product per Customer** - dihapus dari dashboard karena murni mengukur *Customer Engagement*, tidak memiliki keterkaitan konsep sama sekali dengan 5 dimensi Financial Health (bukan Profitability, Liquidity, Asset Quality, Capital Adequacy, maupun Efficiency).
+- **Total Transaction, Total Transaction Value, dsb.** - diklasifikasikan sebagai **Transaction Activity (supplementary)**, bukan Operational Efficiency, karena murni mengukur volume/nilai aktivitas, bukan rasio biaya atau produktivitas seperti CIR/Profit per Employee.
 
 ## 4. Karakteristik Data: Event vs Snapshot
 
 Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik temporal data:
 
-- **Event Data** — data yang mencatat kejadian/aktivitas pada waktu tertentu, sehingga setiap record merepresentasikan sebuah **peristiwa** (contoh: `transactions`, `loans.disbursement_date`). Data jenis ini valid untuk membangun **tren historis** (line/column chart per bulan).
-- **Snapshot Data** — data yang menggambarkan kondisi objek pada satu titik waktu, sehingga setiap record merepresentasikan sebuah **keadaan**, bukan riwayat perubahan (contoh: `accounts.balance_idr`, `loans.outstanding_idr`). Data jenis ini **hanya boleh** ditampilkan sebagai Card (angka tunggal) atau breakdown kategori (bar/donut chart per status/jenis) — **tidak boleh** dipaksakan menjadi tren garis per bulan, karena akan menyesatkan pembaca seolah-olah itu representasi perubahan bisnis dari waktu ke waktu, padahal sebenarnya perbedaan itu berasal dari karakteristik cohort (misalnya bulan pencairan atau bulan pembukaan rekening), bukan pergerakan bisnis riil.
+- **Event Data** - data yang mencatat kejadian/aktivitas pada waktu tertentu, sehingga setiap record merepresentasikan sebuah **peristiwa** (contoh: `transactions`, `loans.disbursement_date`). Data jenis ini valid untuk membangun **tren historis** (line/column chart per bulan).
+- **Snapshot Data** - data yang menggambarkan kondisi objek pada satu titik waktu, sehingga setiap record merepresentasikan sebuah **keadaan**, bukan riwayat perubahan (contoh: `accounts.balance_idr`, `loans.outstanding_idr`). Data jenis ini **hanya boleh** ditampilkan sebagai Card (angka tunggal) atau breakdown kategori (bar/donut chart per status/jenis) - **tidak boleh** dipaksakan menjadi tren garis per bulan, karena akan menyesatkan pembaca seolah-olah itu representasi perubahan bisnis dari waktu ke waktu, padahal sebenarnya perbedaan itu berasal dari karakteristik cohort (misalnya bulan pencairan atau bulan pembukaan rekening), bukan pergerakan bisnis riil.
 
 **Penerapan pada dashboard:**
 - `Total Loan Disbursed` per bulan (`disbursement_date`) → **valid** sebagai tren, karena pencairan pinjaman adalah event.
@@ -79,7 +79,7 @@ Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik te
 | Elemen | Jenis Visual | Sumber Data | Keterangan |
 |---|---|---|---|
 | 5 Card ringkasan | Card | Estimated Loan Interest Income, Outstanding Loan, Total Deposit Balance, Loan-to-Deposit Ratio, NPL Rate | Snapshot kondisi terkini per filter tahun |
-| Total Loan Disbursed per Month | Line/Column chart | `loans.disbursement_date`, `loans.principal_idr` | Tren pencairan pinjaman bulanan (event data — valid) |
+| Total Loan Disbursed per Month | Line/Column chart | `loans.disbursement_date`, `loans.principal_idr` | Tren pencairan pinjaman bulanan (event data - valid) |
 | Deposit Composition by Account Type | Donut chart | `accounts.account_type`, `accounts.balance_idr` | Breakdown tabungan/deposito/bisnis |
 | Outstanding Balance vs Remaining Deposit | Donut chart (2 measure) | `Outstanding Balance`, `Remaining Deposit` | Visualisasi komposisi LDR |
 | Loan Count by Status | Donut chart | `loans.status` | Jumlah pinjaman per kategori (active/paid_off/overdue/written_off) |
@@ -107,13 +107,13 @@ Pemilihan jenis visualisasi pada dashboard ini mempertimbangkan karakteristik te
 
 ### Observasi
 
-- **NPL meningkat tajam dari 2022 (16.21%) ke 2023 (21.06%)** — konsisten dengan naiknya proporsi pinjaman berstatus *overdue* (dari 6.20% ke 15.04% jumlah pinjaman). Ini sinyal memburuknya kualitas portofolio kredit yang perlu ditelusuri lebih lanjut (jenis pinjaman mana yang paling banyak menyumbang overdue).
+- **NPL meningkat tajam dari 2022 (16.21%) ke 2023 (21.06%)** - konsisten dengan naiknya proporsi pinjaman berstatus *overdue* (dari 6.20% ke 15.04% jumlah pinjaman). Ini sinyal memburuknya kualitas portofolio kredit yang perlu ditelusuri lebih lanjut (jenis pinjaman mana yang paling banyak menyumbang overdue).
 - **Loan-to-Deposit Ratio naik dari 18.38% (2022) ke 23.19% (2023)**, menandakan porsi dana nasabah yang disalurkan sebagai kredit meningkat, meski secara absolut masih jauh dari ambang "agresif" (>95%).
-- **Estimated Loan Interest Income naik dari 2022 ke 2023** (Rp44.94bn → Rp51.53bn) meski Outstanding Loan hanya naik sedikit (Rp2.51bn → Rp2.92bn) — mengindikasikan bauran pinjaman baru di 2023 kemungkinan memiliki suku bunga rata-rata lebih tinggi, atau volume pencairan baru lebih besar dibanding yang sudah dicicil/lunas.
+- **Estimated Loan Interest Income naik dari 2022 ke 2023** (Rp44.94bn → Rp51.53bn) meski Outstanding Loan hanya naik sedikit (Rp2.51bn → Rp2.92bn) - mengindikasikan bauran pinjaman baru di 2023 kemungkinan memiliki suku bunga rata-rata lebih tinggi, atau volume pencairan baru lebih besar dibanding yang sudah dicicil/lunas.
 
 ### Catatan Penting
 
-Angka **Total Deposit Balance** dan **Outstanding Loan** pada tabel di atas ter-filter oleh slicer **Year**, yang tertaut pada tahun **pencairan pinjaman** (`disbursement_date`) dan/atau **tahun pembukaan rekening** (`created_date`) — **bukan** representasi "total deposit/outstanding bank pada tahun tersebut secara keseluruhan". Artinya, angka Rp13.68bn di tahun 2022 adalah **saldo saat ini dari rekening-rekening yang dibuka pada 2022** (cohort), bukan "total simpanan bank pada tahun 2022". Interpretasi cohort ini penting untuk dipahami pembaca agar tidak disalahartikan sebagai laporan neraca tahunan resmi bank.
+Angka **Total Deposit Balance** dan **Outstanding Loan** pada tabel di atas ter-filter oleh slicer **Year**, yang tertaut pada tahun **pencairan pinjaman** (`disbursement_date`) dan/atau **tahun pembukaan rekening** (`created_date`) - **bukan** representasi "total deposit/outstanding bank pada tahun tersebut secara keseluruhan". Artinya, angka Rp13.68bn di tahun 2022 adalah **saldo saat ini dari rekening-rekening yang dibuka pada 2022** (cohort), bukan "total simpanan bank pada tahun 2022". Interpretasi cohort ini penting untuk dipahami pembaca agar tidak disalahartikan sebagai laporan neraca tahunan resmi bank.
 
 ## 7. Limitasi Proyek
 
@@ -121,10 +121,10 @@ Angka **Total Deposit Balance** dan **Outstanding Loan** pada tabel di atas ter-
 2. Beberapa indikator menggunakan pendekatan **Derived KPI** (Estimated Loan Interest Income) dan **Proxy KPI** (Loan-to-Deposit Ratio) yang tidak dimaksudkan sebagai pengganti rasio keuangan resmi.
 3. Dataset terdiri atas *event data* (transaksi, registrasi nasabah, pencairan pinjaman) dan *snapshot data* (saldo rekening, outstanding pinjaman/kartu). Snapshot data tidak dapat digunakan untuk membangun tren historis resmi.
 4. **Total Credit Limit** dan **Credit Utilization Rate** hanya dihitung untuk kartu bertipe *credit*, karena kartu debit dan prepaid tidak memiliki atribut limit kredit pada dataset.
-5. Indikator **Customer Portfolio**, **Card Portfolio**, dan **Transaction Activity** bersifat *supplementary* — berada di luar cakupan lima dimensi Financial Health Framework, disertakan semata sebagai konteks operasional tambahan.
+5. Indikator **Customer Portfolio**, **Card Portfolio**, dan **Transaction Activity** bersifat *supplementary* - berada di luar cakupan lima dimensi Financial Health Framework, disertakan semata sebagai konteks operasional tambahan.
 6. Dimensi **Capital Adequacy** dan **Operational Efficiency** sama sekali tidak dapat direpresentasikan pada dashboard ini.
 7. Data 2024 hanya mencakup Januari–Mei; perbandingan lintas tahun untuk 2024 tidak merepresentasikan tahun penuh.
-8. Angka Total Deposit Balance dan Outstanding Loan per tahun bersifat cohort-based (berdasarkan tahun pencairan/pembukaan), bukan snapshot neraca tahunan penuh bank — lihat Catatan Metodologis di Bagian 6.
+8. Angka Total Deposit Balance dan Outstanding Loan per tahun bersifat cohort-based (berdasarkan tahun pencairan/pembukaan), bukan snapshot neraca tahunan penuh bank - lihat Catatan Metodologis di Bagian 6.
 9. Hasil analisis pada dashboard merepresentasikan kondisi berdasarkan dataset yang digunakan dan tidak dapat dianggap sebagai representasi penuh terhadap kondisi keuangan bank komersial sesungguhnya.
 
 ## 8. Tools
